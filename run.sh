@@ -1,5 +1,7 @@
 #!/bin/bash
 
+VERSION=$(cat README.md | grep "Version" | awk '{print $2}')
+
 if [ -z "$1" ]
 then
 	echo 'use: ./run.sh <PROJ-DIR>'
@@ -12,6 +14,6 @@ docker run --rm -it \
 	-v $(pwd):/src \
 	-p 1313:1313 \
 	--dns 8.8.8.8 \
-	mooremachine/hugo-docker:0.1.0 \
+	mooremachine/hugo-docker:$VERSION \
 	shell
 
