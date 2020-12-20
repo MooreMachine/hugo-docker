@@ -1,4 +1,5 @@
 #!/bin/bash
 
-docker build --tag mooremachine/hugo-docker:0.2.0 .
+VERSION=$(cat README.md | grep "Version" | awk '{print $2}')
+docker build --tag mooremachine/hugo-docker:$VERSION .
 
